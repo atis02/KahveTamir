@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f8f3ec;
+  --color-cream-2: #f1e9dd;
+  --color-beige: #e6d9c6;
+  --color-sand: #d8c7ae;
+  --color-espresso: #2a1c14;
+  --color-espresso-2: #3a281d;
+  --color-roast: #1c130d;
+  --color-copper: #b5713f;
+  --color-copper-dark: #93582d;
+  --color-caramel: #d3a374;
+  --color-warmgray: #7d726a;
+  --color-warmgray-light: #a99d92;
+  --color-whatsapp: #1f9d55;
+
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(42 28 20 / 0.04), 0 8px 24px -8px rgb(42 28 20 / 0.10);
+  --shadow-lift: 0 2px 4px rgb(42 28 20 / 0.05), 0 24px 48px -16px rgb(42 28 20 / 0.22);
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-caramel);
+  color: var(--color-roast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Scroll ile görünür olma — JS yoksa içerik görünür kalır */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hafif kâğıt dokusu */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+}
+
+details > summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js [data-reveal] { opacity: 1; transform: none; }
+}
