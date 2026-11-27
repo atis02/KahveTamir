@@ -13,7 +13,7 @@ export default function Gallery() {
           intro="Ev ve profesyonel kahve makinelerinde arıza tespiti, temizlik ve bakım çalışmalarından kareler."
         />
 
-        <ul className="mt-14 grid auto-rows-[15rem] grid-cols-1 gap-4 sm:grid-cols-2 sm:auto-rows-[14rem] lg:grid-cols-3 lg:auto-rows-[16rem] lg:gap-5">
+        <ul className="mt-14 grid auto-rows-[15rem] grid-cols-1 lg:grid-flow-dense gap-4 sm:grid-cols-2 sm:auto-rows-[14rem] lg:grid-cols-3 lg:auto-rows-[16rem] lg:gap-5">
           {gallery.map((g, i) => (
             <li
               key={g.src}

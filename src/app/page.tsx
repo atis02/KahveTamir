@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import Categories from "@/components/sections/Categories";
+import BrandStrip from "@/components/sections/BrandStrip";
+import Devices from "@/components/sections/Devices";
 import Services from "@/components/sections/Services";
 import WhyUs from "@/components/sections/WhyUs";
 import Process from "@/components/sections/Process";
@@ -30,6 +32,8 @@ export default function HomePage() {
       <LocalBusinessJsonLd />
       <FaqJsonLd />
       <Hero />
+      <BrandStrip />
+      <Devices />
       <Categories />
       <Services />
       <WhyUs />

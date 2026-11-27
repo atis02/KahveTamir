@@ -31,11 +31,11 @@ export const site = {
   url: resolveSiteUrl(),
 
   /** Ekranda görünen telefon */
-  phoneDisplay: "0555 000 00 00",
+  phoneDisplay: "+90 552 713 67 67",
   /** tel: bağlantısı için uluslararası format */
-  phoneE164: "+905550000000",
+  phoneE164: "+905527136767",
   /** WhatsApp numarası — yalnızca rakam, ülke koduyla (wa.me formatı) */
-  whatsapp: "905550000000",
+  whatsapp: "905527136767",
   email: "info@ornek-kahveservis.com.tr",
 
   address: {
@@ -75,8 +75,11 @@ export const site = {
    * markaları "servis verilen" olarak sunmaz; yalnızca yaygın markalar
    * olarak listeler.
    */
-  brandsConfirmed: false,
-  brands: ["De'Longhi", "Philips", "Siemens", "Bosch", "Jura", "Saeco", "Krups", "Nespresso", "Melitta", "Gaggia"],
+  brandsConfirmed: true,
+  brands: [
+    "De'Longhi", "Philips", "Saeco", "Siemens", "Bosch", "Jura", "Krups", "Nespresso", "Melitta", "Gaggia",
+    "La Marzocco", "Rancilio", "Nuova Simonelli", "La Cimbali", "Franke", "WMF", "Mazzer", "Fiorenzato", "Breville", "Arçelik",
+  ],
 } as const;
 
 export const whatsappLink = (message?: string) =>

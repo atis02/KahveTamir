@@ -12,15 +12,46 @@ export const images = {
   office: { src: u("photo-1657758481156-fbed1d83e694"), alt: "Modern ofis mutfağında tam otomatik kahve makinesi" },
   officeAlt: { src: u("photo-1461988366670-48e401bafb0a"), alt: "Kafede kullanılan çok gruplu profesyonel espresso makinesi" },
   homeAlt: { src: u("photo-1649882453797-0deb17375235"), alt: "Ev mutfağında raflar önünde konumlanmış espresso makinesi ve öğütücü" },
+  homeMachine: { src: u("photo-1637029436347-e33bf98a5412"), alt: "Beyaz tezgâh üzerinde ev tipi espresso makinesi ve kahve öğütücü" },
+  industrial: { src: u("photo-1461988091159-192b6df7054f"), alt: "Kafede kullanılan çok gruplu endüstriyel espresso makinesi" },
+  grinder: { src: u("photo-1461988279488-1dac181a78f9"), alt: "Kahve çekirdekleriyle dolu profesyonel kahve öğütücüleri" },
 } as const;
+
+/** Servis verilen cihaz grupları (ana sayfadaki "Cihazlar" bölümü) */
+export const deviceGroups = [
+  {
+    title: "Ev Tipi Kahve Makinaları",
+    text: "Espresso, tam otomatik, kapsüllü ve filtre kahve makinaları için arıza, tamir, bakım ve onarım.",
+    items: ["Espresso makinaları", "Tam otomatik makinalar", "Kapsüllü makinalar"],
+    image: images.homeMachine,
+    href: "/ev-tipi-kahve-makinesi-tamiri",
+  },
+  {
+    title: "Endüstriyel Kahve Makinaları",
+    text: "Kafe, restoran, otel ve ofislerde kullanılan tek ve çok gruplu profesyonel makinalar için teknik servis.",
+    items: ["Çok gruplu espresso makinaları", "Kazan ve pompa bakımı", "Elektronik kart arızaları"],
+    image: images.industrial,
+    href: "/ofis-tipi-kahve-makinesi-tamiri",
+  },
+  {
+    title: "Kahve Öğütücüleri",
+    text: "Ev tipi ve endüstriyel kahve öğütücülerinde bıçak, motor ve öğütme ayarı tamiri ile bakımı.",
+    items: ["Endüstriyel öğütücüler", "Bıçak (çark) değişimi", "Öğütme ayarı ve kalibrasyon"],
+    image: images.grinder,
+    href: "/ofis-tipi-kahve-makinesi-tamiri",
+  },
+] as const;
 
 export const gallery = [
   { src: u("photo-1625221960558-bb4a74a88632"), alt: "Espresso makinesinde portafiltre ve grup başlığı kontrolü", caption: "Grup başlığı kontrolü", span: "lg:row-span-2" },
-  { src: u("photo-1542067953-528621275a71"), alt: "Paslanmaz çelik espresso makinesinin buhar çubuğu ve gövde detayları", caption: "Gövde ve bileşen detayları", span: "" },
-  { src: u("photo-1527578306329-62bf0453581e"), alt: "Espresso makinesinde portafiltreye kahve sıkıştırılması", caption: "Portafiltre ve hazne kontrolü", span: "" },
-  { src: u("photo-1649882453797-0deb17375235"), alt: "Ev mutfağında kullanılan espresso makinesi ve öğütücü", caption: "Ev tipi makineler", span: "" },
-  { src: u("photo-1421986598195-0d9c26ecfcde"), alt: "Kafede kullanılan paslanmaz çelik profesyonel espresso makinesi", caption: "Profesyonel makineler", span: "lg:row-span-2" },
-  { src: u("photo-1620052087171-68c17d1a196f"), alt: "Espresso makinesi üzerinde çalışan teknisyen", caption: "Arıza tespiti", span: "lg:col-span-2" },
+  { src: u("photo-1461988279488-1dac181a78f9"), alt: "Profesyonel kahve öğütücüleri", caption: "Endüstriyel kahve öğütücüleri", span: "" },
+  { src: u("photo-1637029436347-e33bf98a5412"), alt: "Ev tipi espresso makinesi ve kahve öğütücü", caption: "Ev tipi espresso makinaları", span: "" },
+  { src: u("photo-1560885521-4e61e9bc1631"), alt: "Öğütücüden portafiltreye kahve dozajlanması", caption: "Öğütücü dozaj kontrolü", span: "" },
+  { src: u("photo-1461988091159-192b6df7054f"), alt: "Çok gruplu endüstriyel espresso makinesi", caption: "Endüstriyel espresso makinaları", span: "lg:row-span-2" },
+  { src: u("photo-1608354580875-30bd4168b351"), alt: "Ev tipi siyah espresso makinesi", caption: "Ev tipi makinalar", span: "" },
+  { src: u("photo-1596158767564-c5c53f0b838c"), alt: "Kafede yan yana duran iki profesyonel kahve öğütücü", caption: "Profesyonel öğütücüler", span: "" },
+  { src: u("photo-1776267068223-0e8c8fb952e0"), alt: "Kafe tezgâhında espresso makinesi ve kahve öğütücü", caption: "Kafe makinaları ve öğütücüler", span: "lg:col-span-2" },
+  { src: u("photo-1620052087171-68c17d1a196f"), alt: "Espresso makinesi üzerinde çalışan teknisyen", caption: "Arıza tespiti", span: "" },
 ] as const;
 
 export type CategoryKey = "ev" | "ofis";

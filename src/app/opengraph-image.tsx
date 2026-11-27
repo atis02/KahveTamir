@@ -29,8 +29,8 @@ export default function OpengraphImage() {
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 72, lineHeight: 1.05, maxWidth: 980 }}>Kahve Makineniz İçin Profesyonel Teknik Servis</div>
-          <div style={{ marginTop: 28, fontSize: 30, color: "#d3a374" }}>Ev Tipi · Ofis Tipi · Tamir · Bakım · Temizlik</div>
+          <div style={{ fontSize: 72, lineHeight: 1.05, maxWidth: 980 }}>Kahve Makinası Servis</div>
+          <div style={{ marginTop: 28, fontSize: 30, color: "#d3a374" }}>Ev Tipi · Endüstriyel · Öğütücü · Her Marka Model</div>
         </div>
       </div>
     ),

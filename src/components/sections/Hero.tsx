@@ -1,9 +1,16 @@
 import Image from "next/image";
-import { ArrowRight, Building2, House, ShieldCheck } from "lucide-react";
+import { ArrowRight, Building2, Check, House, ShieldCheck } from "lucide-react";
 import { images } from "@/config/content";
 import { defaultWhatsappMessage, whatsappLink } from "@/config/site";
 import { ButtonLink } from "../ui";
 import { WhatsAppIcon } from "../Icons";
+
+const heroLines = [
+  "Kahve makinaları tamir bakım servisi",
+  "Endüstriyel kahve makinaları ve öğütücüleri tamir bakımı",
+  "Ev tipi kahve makinaları arıza tamir bakım onarım",
+  "Her marka model kahve makinaları servisi",
+];
 
 const trust = [
   { Icon: House, label: "Ev tipi makineler" },
@@ -23,18 +30,22 @@ export default function Hero() {
         <div className="lg:col-span-6">
           <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-caramel">
             <span className="size-1.5 rounded-full bg-caramel" aria-hidden="true" />
-            Kahve makinesi teknik servisi
+            Her marka · Her model
           </p>
           <h1
             id="hero-baslik"
-            className="animate-fade-up mt-7 font-serif text-[2.6rem] leading-[1.02] font-medium tracking-[-0.025em] text-balance [animation-delay:80ms] sm:text-6xl lg:text-[4.4rem]"
+            className="animate-fade-up mt-7 font-serif text-[2.8rem] leading-[1.02] font-medium tracking-[-0.025em] text-balance [animation-delay:80ms] sm:text-6xl lg:text-[4.6rem]"
           >
-            Kahve Makineniz İçin <em className="font-normal text-caramel italic">Profesyonel</em> Teknik Servis
+            Kahve Makinası <em className="font-normal text-caramel italic">Servis</em>
           </h1>
-          <p className="animate-fade-up mt-7 max-w-xl text-lg leading-relaxed text-cream/75 [animation-delay:160ms]">
-            Ev ve ofis tipi kahve makineleriniz için güvenilir tamir, bakım ve teknik servis hizmeti. Kahvenizin keyfi
-            yarıda kalmasın.
-          </p>
+          <ul className="animate-fade-up mt-8 grid max-w-xl gap-3 text-lg leading-snug text-cream/80 [animation-delay:160ms]">
+            {heroLines.map((line) => (
+              <li key={line} className="flex items-start gap-3">
+                <Check className="mt-1 size-5 shrink-0 text-caramel" aria-hidden="true" />
+                {line}
+              </li>
+            ))}
+          </ul>
           <div className="animate-fade-up mt-10 flex flex-col gap-3 [animation-delay:240ms] sm:flex-row">
             <ButtonLink href="/#iletisim" variant="primary">
               Hemen Servis Talep Et <ArrowRight className="size-4" />
