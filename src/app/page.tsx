@@ -33,12 +33,12 @@ export default function HomePage() {
       <FaqJsonLd />
       <Hero />
       <BrandStrip />
+      <Brands />
       <Devices />
       <Categories />
       <Services />
       <WhyUs />
       <Process />
-      <Brands />
       <Gallery />
       <Faq />
       <Contact />

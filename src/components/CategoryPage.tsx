@@ -121,6 +121,8 @@ export default function CategoryPage({ kind }: { kind: CategoryKey }) {
         </div>
       </section>
 
+      <Brands only={kind === "ev" ? ["ev"] : ["endustriyel", "ogutucu"]} />
+
       {/* Hizmetler */}
       <section id="hizmetler" aria-labelledby="kat-hizmet" className="py-24 lg:py-28">
         <Container>
@@ -194,7 +196,6 @@ export default function CategoryPage({ kind }: { kind: CategoryKey }) {
       </section>
 
       <Process />
-      <Brands only={kind === "ev" ? ["ev"] : ["endustriyel", "ogutucu"]} />
 
       {/* Diğer kategori */}
       <section aria-label="Diğer servis kategorisi" className="pb-8">
