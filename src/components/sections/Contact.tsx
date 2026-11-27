@@ -1,14 +1,13 @@
-import { Clock, MapPin, Phone } from "lucide-react";
-import { defaultWhatsappMessage, fullAddress, site, whatsappLink } from "@/config/site";
+import { BadgeCheck, Clock, Phone } from "lucide-react";
+import { defaultWhatsappMessage, site, whatsappLink } from "@/config/site";
 import ContactForm from "../ContactForm";
 import { Container, Eyebrow } from "../ui";
 import { WhatsAppIcon } from "../Icons";
 
 export default function Contact({ defaultType = "" }: { defaultType?: "" | "Ev Tipi" | "Ofis Tipi" }) {
   const items = [
-    { Icon: Phone, title: "Telefon", value: site.phoneDisplay, href: `tel:${site.phoneE164}` },
-    { Icon: WhatsAppIcon, title: "WhatsApp", value: "Hemen mesaj gönderin", href: whatsappLink(defaultWhatsappMessage), external: true },
-    { Icon: MapPin, title: "Adres", value: fullAddress },
+    { Icon: Phone, title: "İletişim Hattı", value: site.phoneDisplay, href: `tel:${site.phoneE164}` },
+    { Icon: WhatsAppIcon, title: "WhatsApp", value: site.whatsappDisplay, href: whatsappLink(defaultWhatsappMessage), external: true },
   ];
 
   return (
@@ -25,6 +24,10 @@ export default function Contact({ defaultType = "" }: { defaultType?: "" | "Ev T
               <p className="mt-6 text-[1.05rem] leading-relaxed text-cream/70">
                 Formu doldurun, talebiniz WhatsApp üzerinden bize hazır bir mesaj olarak ulaşsın. Dilerseniz doğrudan
                 arayabilir veya yazabilirsiniz.
+              </p>
+              <p className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-copper/15 px-4 py-2.5 text-sm font-semibold text-caramel ring-1 ring-copper/30">
+                <BadgeCheck className="size-4 shrink-0" aria-hidden="true" />
+                {site.slogan}
               </p>
             </div>
 

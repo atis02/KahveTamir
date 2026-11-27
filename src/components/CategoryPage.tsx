@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AlertCircle, ArrowRight, ArrowUpRight, Check, ChevronRight } from "lucide-react";
-import { categories, faqs, images, type CategoryKey } from "@/config/content";
-import { whatsappLink } from "@/config/site";
+import { brandFaq, categories, faqs, images, type CategoryKey } from "@/config/content";
+import { brandList, site, whatsappLink } from "@/config/site";
 import { ButtonLink, Container, Eyebrow, SectionHeading } from "./ui";
 import { WhatsAppIcon } from "./Icons";
 import Process from "./sections/Process";
@@ -45,7 +45,11 @@ export default function CategoryPage({ kind }: { kind: CategoryKey }) {
   const t = copy[kind];
   const other = categories[kind === "ev" ? "ofis" : "ev"];
   const dark = kind === "ofis";
-  const pageFaqs = t.faqIdx.map((i) => faqs[i]);
+  const pageFaqs = [...t.faqIdx.map((i) => faqs[i]), brandFaq];
+  const pageBrands =
+    kind === "ev"
+      ? site.brandGroups.ev
+      : Array.from(new Set([...site.brandGroups.endustriyel, ...site.brandGroups.ogutucu]));
 
   return (
     <>
@@ -104,6 +108,10 @@ export default function CategoryPage({ kind }: { kind: CategoryKey }) {
                 </li>
               ))}
             </ul>
+            <p className={`animate-fade-up mt-6 border-l-2 border-copper pl-4 text-[0.95rem] leading-relaxed [animation-delay:340ms] ${dark ? "text-cream/70" : "text-warmgray"}`}>
+              Servis verdiğimiz markalar:{" "}
+              <strong className={`font-semibold ${dark ? "text-cream" : "text-espresso"}`}>{brandList(pageBrands)}</strong>
+            </p>
           </div>
           <div className="animate-fade-up relative [animation-delay:120ms] lg:col-span-6">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] lg:aspect-[5/6]">
@@ -186,7 +194,7 @@ export default function CategoryPage({ kind }: { kind: CategoryKey }) {
       </section>
 
       <Process />
-      <Brands />
+      <Brands only={kind === "ev" ? ["ev"] : ["endustriyel", "ogutucu"]} />
 
       {/* Diğer kategori */}
       <section aria-label="Diğer servis kategorisi" className="pb-8">

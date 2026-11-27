@@ -16,7 +16,7 @@ import { baseOpenGraph, site } from "@/config/site";
 export const metadata: Metadata = {
   title: { absolute: `Kahve Makinesi Tamiri ve Teknik Servis | Ev ve Ofis Tipi | ${site.name}` },
   description:
-    "Ev ve ofis tipi kahve makineleri için profesyonel tamir, bakım, kireç temizliği ve teknik servis. Espresso, otomatik ve kapsüllü makineler için hemen servis talep edin.",
+    "Garantili kahve makinası servis, bakım ve tamir. Ev tipi ve endüstriyel kahve makinaları ile öğütücüler: De'Longhi, Philips, Saeco, Jura, Siemens, La Marzocco, Rancilio, Mazzer ve her marka model.",
   alternates: { canonical: "/" },
   openGraph: {
     ...baseOpenGraph,

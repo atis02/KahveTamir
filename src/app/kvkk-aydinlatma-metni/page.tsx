@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { fullAddress, site } from "@/config/site";
+import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "KVKK Aydınlatma Metni",
@@ -15,7 +15,7 @@ export default function Page() {
         <h2>Veri Sorumlusu</h2>
         <p>
           6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) kapsamında veri sorumlusu{" "}
-          {`${site.legalName}'dir`}. İletişim adresi: {fullAddress}. E-posta: {site.email}.
+          {`${site.legalName}'dir`}. İletişim: {site.phoneDisplay}, E-posta: {site.email}.
         </p>
       </div>
       <div>

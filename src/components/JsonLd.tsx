@@ -1,5 +1,5 @@
 import { categories, faqs } from "@/config/content";
-import { site } from "@/config/site";
+import { allBrands, site } from "@/config/site";
 
 /** LocalBusiness yapılandırılmış verisi — tüm alanlar src/config/site.ts dosyasından gelir. */
 export function LocalBusinessJsonLd() {
@@ -13,16 +13,14 @@ export function LocalBusinessJsonLd() {
     telephone: site.phoneE164,
     email: site.email,
     image: `${site.url}/opengraph-image`,
-    description: "Ev ve ofis tipi kahve makineleri için tamir, bakım, temizlik ve teknik servis hizmetleri.",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.address.street,
-      addressLocality: site.address.district,
-      addressRegion: site.address.city,
-      postalCode: site.address.postalCode,
-      addressCountry: site.address.country,
-    },
-    areaServed: site.serviceArea,
+    description: `${site.slogan}. Ev tipi ve endüstriyel kahve makinaları ile kahve öğütücüleri için tamir, bakım ve teknik servis.`,
+    slogan: site.slogan,
+    address: { "@type": "PostalAddress", addressCountry: "TR" },
+    contactPoint: [
+      { "@type": "ContactPoint", telephone: site.phoneE164, contactType: "customer service", availableLanguage: "Turkish" },
+      { "@type": "ContactPoint", telephone: `+${site.whatsapp}`, contactType: "WhatsApp", availableLanguage: "Turkish" },
+    ],
+    knowsAbout: allBrands.map((b) => `${b} kahve makinası servisi`),
     openingHoursSpecification: site.openingHoursSpec.map((o) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: o.days,

@@ -51,15 +51,24 @@ export default function Header() {
       {/* Üst bilgi şeridi */}
       <div className="hidden bg-roast text-[0.78rem] text-warmgray-light md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-2">
-          <p>Ev ve ofis tipi kahve makineleri için tamir, bakım ve teknik servis</p>
+          <p className="font-semibold text-caramel">{site.slogan}</p>
           <div className="flex items-center gap-6">
-            <span className="inline-flex items-center gap-2">
+            <span className="hidden items-center gap-2 xl:inline-flex">
               <Clock className="size-3.5 text-caramel" aria-hidden="true" />
               {site.hours[0].days}: {site.hours[0].time}
             </span>
             <a href={`tel:${site.phoneE164}`} className="inline-flex items-center gap-2 text-cream hover:text-caramel">
               <Phone className="size-3.5 text-caramel" aria-hidden="true" />
               {site.phoneDisplay}
+            </a>
+            <a
+              href={whatsappLink(defaultWhatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-cream hover:text-caramel"
+            >
+              <WhatsAppIcon className="size-3.5 text-[#4ade80]" />
+              {site.whatsappDisplay}
             </a>
           </div>
         </div>

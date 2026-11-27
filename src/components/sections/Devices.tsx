@@ -45,6 +45,16 @@ export default function Devices() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-auto pt-6">
+                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-copper">Markalar</p>
+                    <ul className="mt-2.5 flex flex-wrap gap-1.5" aria-label={`${d.title} markaları`}>
+                      {d.brands.map((b) => (
+                        <li key={b} className="rounded-full bg-cream-2 px-3 py-1 text-[0.8rem] font-semibold text-espresso ring-1 ring-espresso/10">
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </Link>
             </li>

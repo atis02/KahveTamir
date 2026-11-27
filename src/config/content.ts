@@ -3,6 +3,8 @@
  * fotoğrafları hazır olduğunda `public/images` klasörüne ekleyip
  * buradaki `src` değerlerini (ör. "/images/atolye-1.jpg") değiştirin.
  */
+import { brandList, site } from "./site";
+
 const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=80`;
 
 export const images = {
@@ -23,6 +25,7 @@ export const deviceGroups = [
     title: "Ev Tipi Kahve Makinaları",
     text: "Espresso, tam otomatik, kapsüllü ve filtre kahve makinaları için arıza, tamir, bakım ve onarım.",
     items: ["Espresso makinaları", "Tam otomatik makinalar", "Kapsüllü makinalar"],
+    brands: site.brandGroups.ev,
     image: images.homeMachine,
     href: "/ev-tipi-kahve-makinesi-tamiri",
   },
@@ -30,6 +33,7 @@ export const deviceGroups = [
     title: "Endüstriyel Kahve Makinaları",
     text: "Kafe, restoran, otel ve ofislerde kullanılan tek ve çok gruplu profesyonel makinalar için teknik servis.",
     items: ["Çok gruplu espresso makinaları", "Kazan ve pompa bakımı", "Elektronik kart arızaları"],
+    brands: site.brandGroups.endustriyel,
     image: images.industrial,
     href: "/ofis-tipi-kahve-makinesi-tamiri",
   },
@@ -37,6 +41,7 @@ export const deviceGroups = [
     title: "Kahve Öğütücüleri",
     text: "Ev tipi ve endüstriyel kahve öğütücülerinde bıçak, motor ve öğütme ayarı tamiri ile bakımı.",
     items: ["Endüstriyel öğütücüler", "Bıçak (çark) değişimi", "Öğütme ayarı ve kalibrasyon"],
+    brands: site.brandGroups.ogutucu,
     image: images.grinder,
     href: "/ofis-tipi-kahve-makinesi-tamiri",
   },
@@ -146,6 +151,11 @@ export const steps = [
   { title: "Kontrol ve Teslim", text: "Onarım sonrası makineyi test edip sorunsuz çalıştığından emin olarak teslim edelim." },
 ] as const;
 
+export const brandFaq = {
+  q: "Hangi marka kahve makinalarına servis veriyorsunuz?",
+  a: `Her marka ve model kahve makinasına servis veriyoruz. Ev tipi makinalarda ${brandList(site.brandGroups.ev)}; endüstriyel makinalarda ${brandList(site.brandGroups.endustriyel)}; kahve öğütücülerinde ${brandList(site.brandGroups.ogutucu)} markalarına tamir, bakım ve onarım hizmeti sunuyoruz.`,
+};
+
 export const faqs = [
   {
     q: "Kahve makinesi tamiri ne kadar sürer?",
@@ -175,6 +185,7 @@ export const faqs = [
     q: "Servis ücretleri nasıl belirlenir?",
     a: "Ücret; makinenin türüne, arızanın kapsamına, yapılacak işçiliğe ve gerekiyorsa değişecek parçalara göre belirlenir. Arıza tespitinin ardından yapılacak işlemi ve ücreti size bildirir, onayınızı almadan işleme başlamayız.",
   },
+  brandFaq,
 ] as const;
 
 export const navItems = [

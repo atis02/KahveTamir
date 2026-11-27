@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Building2, Check, House, ShieldCheck } from "lucide-react";
 import { images } from "@/config/content";
-import { defaultWhatsappMessage, whatsappLink } from "@/config/site";
+import { allBrands, brandList, defaultWhatsappMessage, site, whatsappLink } from "@/config/site";
 import { ButtonLink } from "../ui";
 import { WhatsAppIcon } from "../Icons";
 
@@ -12,10 +12,12 @@ const heroLines = [
   "Her marka model kahve makinaları servisi",
 ];
 
+const heroBrands = ["De'Longhi", "Philips", "Saeco", "Jura", "Siemens", "La Marzocco", "Rancilio", "Mazzer"];
+
 const trust = [
-  { Icon: House, label: "Ev tipi makineler" },
-  { Icon: Building2, label: "Ofis ve işletme makineleri" },
-  { Icon: ShieldCheck, label: "Onarım öncesi bilgilendirme" },
+  { Icon: House, label: "Ev tipi makinalar" },
+  { Icon: Building2, label: "Endüstriyel makinalar ve öğütücüler" },
+  { Icon: ShieldCheck, label: "Garantili servis" },
 ];
 
 export default function Hero() {
@@ -28,9 +30,9 @@ export default function Hero() {
       />
       <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-14 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-28 lg:pt-20">
         <div className="lg:col-span-6">
-          <p className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/5 px-4 py-2 text-[0.72rem] font-bold uppercase tracking-[0.2em] text-caramel">
-            <span className="size-1.5 rounded-full bg-caramel" aria-hidden="true" />
-            Her marka · Her model
+          <p className="animate-fade-up inline-flex items-center gap-2.5 rounded-2xl border border-copper/40 bg-copper/15 px-4 py-2.5 text-[0.78rem] font-bold uppercase leading-snug tracking-[0.12em] text-caramel">
+            <ShieldCheck className="size-4 shrink-0" aria-hidden="true" />
+            {site.slogan}
           </p>
           <h1
             id="hero-baslik"
@@ -46,6 +48,10 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+          <p className="animate-fade-up mt-7 max-w-xl border-l-2 border-copper pl-4 text-[0.95rem] leading-relaxed text-cream/70 [animation-delay:200ms]">
+            <strong className="font-semibold text-cream">{brandList(heroBrands)}</strong> ve{" "}
+            {allBrands.length - heroBrands.length}+ marka daha için servis.
+          </p>
           <div className="animate-fade-up mt-10 flex flex-col gap-3 [animation-delay:240ms] sm:flex-row">
             <ButtonLink href="/#iletisim" variant="primary">
               Hemen Servis Talep Et <ArrowRight className="size-4" />

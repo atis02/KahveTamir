@@ -30,21 +30,18 @@ export const site = {
    */
   url: resolveSiteUrl(),
 
-  /** Ekranda görünen telefon */
-  phoneDisplay: "+90 552 713 67 67",
+  /** Slogan — hero, iletişim ve footer'da gösterilir */
+  slogan: "Garantili etkili servis bakım onarım tamir bölge merkezi",
+
+  /** İletişim (arama) numarası — ekranda görünen */
+  phoneDisplay: "0850 346 54 57",
   /** tel: bağlantısı için uluslararası format */
-  phoneE164: "+905527136767",
+  phoneE164: "+908503465457",
+  /** WhatsApp numarası — ekranda görünen */
+  whatsappDisplay: "0552 713 67 67",
   /** WhatsApp numarası — yalnızca rakam, ülke koduyla (wa.me formatı) */
   whatsapp: "905527136767",
   email: "info@ornek-kahveservis.com.tr",
-
-  address: {
-    street: "Örnek Mah. Kahve Cad. No: 1",
-    district: "İlçe",
-    city: "İstanbul",
-    postalCode: "34000",
-    country: "TR",
-  },
 
   /** Ekranda görünen çalışma saatleri */
   hours: [
@@ -57,9 +54,6 @@ export const site = {
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "19:00" },
     { days: ["Saturday"], opens: "10:00", closes: "17:00" },
   ],
-
-  /** Hizmet verilen bölge (ör. "İstanbul Anadolu Yakası") */
-  serviceArea: "İstanbul",
 
   /** Sosyal medya — boş bırakılan hesaplar sitede gösterilmez */
   social: {
@@ -76,11 +70,22 @@ export const site = {
    * olarak listeler.
    */
   brandsConfirmed: true,
-  brands: [
-    "De'Longhi", "Philips", "Saeco", "Siemens", "Bosch", "Jura", "Krups", "Nespresso", "Melitta", "Gaggia",
-    "La Marzocco", "Rancilio", "Nuova Simonelli", "La Cimbali", "Franke", "WMF", "Mazzer", "Fiorenzato", "Breville", "Arçelik",
-  ],
+  /** Marka grupları — sitede kategori sayfalarında, cihaz kartlarında ve SSS'de kullanılır */
+  brandGroups: {
+    ev: ["De'Longhi", "Philips", "Saeco", "Siemens", "Bosch", "Jura", "Krups", "Nespresso", "Melitta", "Gaggia", "Breville", "Arçelik"],
+    endustriyel: ["La Marzocco", "Rancilio", "Nuova Simonelli", "La Cimbali", "Franke", "WMF", "Jura", "Saeco"],
+    ogutucu: ["Mazzer", "Fiorenzato", "Eureka", "Anfim", "Compak", "Rancilio"],
+  },
 } as const;
+
+/** Tekrarsız tüm markalar */
+export const allBrands = Array.from(
+  new Set([...site.brandGroups.ev, ...site.brandGroups.endustriyel, ...site.brandGroups.ogutucu])
+);
+
+/** "A, B, C ve D" biçiminde liste */
+export const brandList = (list: readonly string[], max = list.length) =>
+  list.length <= 1 ? list.join("") : `${list.slice(0, max - 1).join(", ")} ve ${list[max - 1]}`;
 
 export const whatsappLink = (message?: string) =>
   `https://wa.me/${site.whatsapp}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
@@ -88,7 +93,6 @@ export const whatsappLink = (message?: string) =>
 export const defaultWhatsappMessage =
   "Merhaba, kahve makinem için teknik servis talebinde bulunmak istiyorum.";
 
-export const fullAddress = `${site.address.street}, ${site.address.district} / ${site.address.city}`;
 
 /** Sayfa bazlı openGraph tanımları layout'takini ezdiği için ortak alanlar */
 export const baseOpenGraph = {

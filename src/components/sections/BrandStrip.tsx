@@ -1,8 +1,8 @@
-import { site } from "@/config/site";
+import { allBrands } from "@/config/site";
 
 /** Hero altında kayan marka şeridi */
 export default function BrandStrip() {
-  const brands = site.brands;
+  const brands = allBrands;
   return (
     <section aria-label="Servis verdiğimiz kahve makinası markaları" className="border-b border-espresso/10 bg-cream-2">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-5 py-7 sm:px-8 lg:flex-row lg:gap-10">
@@ -16,7 +16,7 @@ export default function BrandStrip() {
               <li
                 key={`${b}-${i}`}
                 aria-hidden={i >= brands.length ? true : undefined}
-                className="whitespace-nowrap font-serif text-2xl font-medium tracking-tight text-espresso/55 transition-colors hover:text-espresso"
+                className="whitespace-nowrap font-serif text-[1.7rem] font-semibold tracking-tight text-espresso/80 transition-colors hover:text-copper"
               >
                 {b}
               </li>

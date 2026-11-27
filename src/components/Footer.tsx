@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, Phone } from "lucide-react";
 import { categories, navItems } from "@/config/content";
-import { defaultWhatsappMessage, fullAddress, site, whatsappLink } from "@/config/site";
+import { allBrands, brandList, defaultWhatsappMessage, site, whatsappLink } from "@/config/site";
 import Logo from "./Logo";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, YoutubeIcon } from "./Icons";
 
@@ -22,8 +22,8 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Logo tone="light" />
             <p className="mt-6 max-w-sm leading-relaxed">
-              Ev ve ofis tipi kahve makineleri için arıza tespiti, tamir, bakım ve temizlik hizmeti. Kahvenizin keyfi
-              yarıda kalmasın.
+              {site.slogan}. Ev tipi ve endüstriyel kahve makinaları ile kahve öğütücüleri için her marka ve model
+              servis: {brandList(allBrands, 8)}.
             </p>
             <a
               href={whatsappLink(defaultWhatsappMessage)}
@@ -112,8 +112,10 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-caramel" aria-hidden="true" />
-                <address className="not-italic">{fullAddress}</address>
+                <WhatsAppIcon className="mt-0.5 size-4 shrink-0 text-caramel" />
+                <a href={whatsappLink(defaultWhatsappMessage)} target="_blank" rel="noopener noreferrer" className="hover:text-caramel">
+                  WhatsApp: {site.whatsappDisplay}
+                </a>
               </li>
               <li className="flex gap-3">
                 <Clock className="mt-0.5 size-4 shrink-0 text-caramel" aria-hidden="true" />
